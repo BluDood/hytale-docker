@@ -1,0 +1,14 @@
+services:
+  hytale:
+    image: ghcr.io/bludood/hytale:latest
+    stdin_open: true
+    tty: true
+    environment:
+      - HYTALE_SERVER_EXTRA_ARGS=
+      - HYTALE_SERVER_JAVA_OPTS=-XX:+UseG1GC
+      - HYTALE_SERVER_MIN_HEAP=2G
+      - HYTALE_SERVER_MAX_HEAP=4G
+    volumes:
+      - ./data:/opt/hytale/data
+    ports:
+      - "5520:5520/udp"
